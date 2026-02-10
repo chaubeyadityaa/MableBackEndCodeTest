@@ -33,4 +33,4 @@ Object.values(accounts).forEach((acc: Account) => {
 });
 
 fs.writeFileSync("final_balances.csv", finalCsvLines.join("\n"), "utf-8");
-console.log("\n✅ Final balances written to final_balances.csv");
+console.log("\n✅ Final balances written to final_balances.csv file");
