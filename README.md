@@ -45,8 +45,8 @@ mable-bank-ts/
 ### 1. Clone the repository
 
 ```bash
-git clone <repo-url>
-cd mable-bank-ts
+git clone https://github.com/chaubeyadityaa/MableBackEndCodeTest.git
+cd MableBackEndCodeTest
 ```
 
 ### 2. Install dependencies
@@ -112,6 +112,61 @@ Run tests with:
 ```bash
 npm run test
 ```
+
+---
+
+## Pre-commit and Pre-push Hooks
+
+This project uses **Husky** to automatically run tests before committing or pushing code.
+
+### Setup Husky
+
+```bash
+npm install --save-dev husky
+npm run prepare
+```
+
+### Pre-commit Hook
+
+Create `.husky/pre-commit`:
+
+```bash
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running tests before commit..."
+npm test
+```
+
+Make it executable:
+
+```bash
+chmod +x .husky/pre-commit
+```
+
+### Pre-push Hook (Optional)
+
+Create `.husky/pre-push`:
+
+```bash
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running full test suite before push..."
+npm test
+```
+
+Make it executable:
+
+```bash
+chmod +x .husky/pre-push
+```
+
+Now:
+- Commits will **fail if tests fail**  
+- Pushes will **fail if tests fail**  
+
+This ensures your code is always tested before it enters the repo.
 
 ---
 
