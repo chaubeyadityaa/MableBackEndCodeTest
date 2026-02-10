@@ -13,6 +13,7 @@ A simple **banking system** implemented in TypeScript that processes daily accou
 - Output updated account balances to a CSV  
 - Fully tested using **Jest** (TypeScript equivalent of RSpec)  
 - Clean separation of concerns and domain modeling  
+- Automated CI pipeline using **GitHub Actions** to run tests on push and PRs
 
 ---
 
@@ -179,6 +180,25 @@ This ensures your code is always tested before it enters the repo.
 
 ---
 
+## GitHub Actions
+This workflow automatically runs your test suite on GitHub for every push or pull request to main, develop, or any feature branch.
+
+**Key points:**
+
+- Runs on multiple Node versions: Tests are executed on Node 18 and Node 20 to ensure compatibility.
+
+- Installs dependencies: Uses npm ci to install packages cleanly.
+
+- Builds TypeScript code: Runs tsc to compile your TypeScript files before testing.
+
+- Runs tests with Jest: Executes npm run test to verify all functionality.
+
+- Failing tests block merges: If any test fails, the workflow fails, preventing broken code from being merged.
+
+This ensures your code is automatically tested and validated before it enters the repository. 
+
+---
+
 ## Notes
 
 - All money amounts are handled as simple floating-point numbers for demonstration purposes  
@@ -216,4 +236,3 @@ from,to,amount
 3212343433335755,1111234522226789,320.50
 1111234522221234,1212343433335665,25.60
 ```
-
