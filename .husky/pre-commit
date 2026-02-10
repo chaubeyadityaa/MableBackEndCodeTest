@@ -3,3 +3,4 @@
 
 echo "Running full test suite before push..."
 npm test
+npx lint-staged
